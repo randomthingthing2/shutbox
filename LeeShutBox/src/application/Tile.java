@@ -1,3 +1,6 @@
+/*
+ * create the state of the tile 
+ */
 package application;
 
 public class Tile {

@@ -1,3 +1,6 @@
+/*
+ * create values for dice
+ */
 package application;
 
 import java.util.Random;

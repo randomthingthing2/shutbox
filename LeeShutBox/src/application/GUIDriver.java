@@ -97,8 +97,7 @@ public class GUIDriver extends Application {
 			resultDice.setText(String.valueOf(score));
 			boolean playing = true;
 			result1.setText("Score");
-			playing = false;
-			if (playing == false) {
+
 				if (score == 0) {
 					result1.setText("you win");
 				}
@@ -114,12 +113,10 @@ public class GUIDriver extends Application {
 						}
 					}
 				}
-			}
 
 		});
 
 		lockinbtn.setOnAction(e -> {
-			lockinbtn.setDisable(true);
 			int total = 0;
 
 			for (int i = 0; i < tileBtns.length; i++) {
@@ -134,18 +131,25 @@ public class GUIDriver extends Application {
 					if (tileBtns[i].getStyle().contains("silver")) {
 						tileBtns[i].setStyle("-fx-background-color: darkslategrey;");
 						lockinbtn.setDisable(true);
-					}
+						twobtnRoll.setDisable(false);
+						btnRoll.setDisable(true);
 
+					}
+				}
+			} else {
+				for (int i = 0; i < tileBtns.length; i++) {
+
+					if (tileBtns[i].getStyle().contains("silver")) {
+						tileBtns[i].setStyle("-fx-background-color: lightgray;");
+					}
 				}
 			}
 			if (tileBtns[6].getStyle().contains("darkslategrey") && tileBtns[7].getStyle().contains("darkslategrey")
 					&& tileBtns[8].getStyle().contains("darkslategrey")) {
 				twobtnRoll.setDisable(true);
-				btnRoll.setDisable(false);
-			} else {
-				twobtnRoll.setDisable(false);
-				btnRoll.setDisable(true);
-			}
+				btnRoll.setDisable(false); 
+				lockinbtn.setDisable(true);
+			} 
 		});
 
 		Scene scene = new Scene(vbox, 500, 200);
@@ -157,4 +161,5 @@ public class GUIDriver extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 }
