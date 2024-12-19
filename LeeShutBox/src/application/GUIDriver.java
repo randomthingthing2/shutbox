@@ -1,5 +1,9 @@
+/**
+ * Trinity Lee
+ * create a java effect of a the dice game
+ * 14/19/24
+ */
 package application;
-
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -83,7 +87,7 @@ public class GUIDriver extends Application {
 
 			}
 		});
-
+		
 		donebtn.setOnAction(e -> {
 			int score = 0;
 
@@ -95,24 +99,23 @@ public class GUIDriver extends Application {
 			}
 
 			resultDice.setText(String.valueOf(score));
-			boolean playing = true;
 			result1.setText("Score");
 
-				if (score == 0) {
-					result1.setText("you win");
-				}
-				result1.setText("score");
-				if (result1.getText() == "score" || result1.getText() == "you win") {
-					for (int i = 0; i < tileBtns.length; i++) {
-						if (tileBtns[i].getStyle().contains("darkslategrey")) {
-							tileBtns[i].setStyle("-fx-background-color: lightgray;");
-							twobtnRoll.setText("Play again");
-							twobtnRoll.setDisable(false);
-							btnRoll.setDisable(true);
+			if (score == 0) {
+				result1.setText("you win");
+			}
+			result1.setText("score");
+			if (result1.getText() == "score" || result1.getText() == "you win") {
+				for (int i = 0; i < tileBtns.length; i++) {
+					if (tileBtns[i].getStyle().contains("darkslategrey")) {
+						tileBtns[i].setStyle("-fx-background-color: lightgray;");
+						twobtnRoll.setText("Play again");
+						twobtnRoll.setDisable(false);
+						btnRoll.setDisable(true);
 
-						}
 					}
 				}
+			}
 
 		});
 
@@ -147,11 +150,11 @@ public class GUIDriver extends Application {
 			if (tileBtns[6].getStyle().contains("darkslategrey") && tileBtns[7].getStyle().contains("darkslategrey")
 					&& tileBtns[8].getStyle().contains("darkslategrey")) {
 				twobtnRoll.setDisable(true);
-				btnRoll.setDisable(false); 
+				btnRoll.setDisable(false);
 				lockinbtn.setDisable(true);
-			} 
+			}
 		});
-
+	//size of playable screen
 		Scene scene = new Scene(vbox, 500, 200);
 		stage.setScene(scene);
 
@@ -161,5 +164,5 @@ public class GUIDriver extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 }
